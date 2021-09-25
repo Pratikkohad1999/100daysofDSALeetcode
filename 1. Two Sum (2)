@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        a = {}
+
+        for index, n in enumerate(nums):
+            other = target - n 
+
+            if other in a:
+                return[a[other],index]
+            else:
+                a[n] = index
+        return []
