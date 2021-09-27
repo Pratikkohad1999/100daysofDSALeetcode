@@ -1,8 +1,8 @@
 public class Solution {
     
     public int reverse(int x) {
-        if (x == Integer.MIN_VALUE){
-            
+        if (x == Integer.MIN_VALUE)
+        {            
             return 0;
         }
         else{
