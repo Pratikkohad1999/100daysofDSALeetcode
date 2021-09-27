@@ -1,0 +1,30 @@
+public class Solution {
+    
+    public int reverse(int x) {
+        if (x == Integer.MIN_VALUE){
+            
+            return 0;
+        }
+        else{
+            int f = 1;
+            if (x < 0){
+                f = -1;
+                x = -x;
+            }
+            int res = 0;
+            while(x > 0){
+                int d = x % 10;
+                int newres = res * 10 + d; 
+                if (res != (newres - d) / 10){
+                    res = 0;
+                    break;
+                }
+                res = newres;
+                x = x / 10;
+            }
+            res = res * f;
+            return res;
+        }
+
+    } 
+}
