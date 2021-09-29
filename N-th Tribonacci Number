@@ -1,0 +1,22 @@
+class Solution:
+    
+    def __init__(self):
+        self.fu_tab = dict()
+        
+        # base case:
+        self.fu_tab[0] = 0
+        self.fu_tab[1] = 1
+        self.fu_tab[2] = 1
+        
+    
+    def tribonacci(self, a: int) -> int:
+        
+        if a in self.fu_tab:
+            # quick response if tribonacci(n) has been computed before
+            return self.fu_tab[a]
+        
+        else:
+            # recursion with memorization 
+            self.fu_tab[a] = self.tribonacci(a-3) + self.tribonacci(a-2) + self.tribonacci(a-1)
+            return self.fu_tab[a]
+
