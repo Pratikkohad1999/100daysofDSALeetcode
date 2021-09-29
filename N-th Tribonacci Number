@@ -19,4 +19,6 @@ class Solution:
             # recursion with memorization 
             self.fu_tab[a] = self.tribonacci(a-3) + self.tribonacci(a-2) + self.tribonacci(a-1)
             return self.fu_tab[a]
+            
+            
 
