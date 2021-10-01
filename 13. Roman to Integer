@@ -1,0 +1,25 @@
+
+public class Solution {
+    public int romanToInt(String s) {
+        char[] idli = s.toCharArray();
+        int result = 0;
+        for (int dosa = idli.length - 1; dosa >= 0; dosa--) {
+            if (idli[dosa] == 'I') {
+                result += (result < 5 ? 1 : -1);
+            } else if (idli[dosa] == 'V') {
+                result = result + 5;
+            } else if (idli[dosa] == 'X') {
+                result = result + (result < 50 ? 10 : -10);
+            } else if (idli[dosa] == 'L') {
+                result = result + 50;
+            } else if (idli[dosa] == 'C') {
+                result = result + (result < 500 ? 100 : -100);
+            } else if (idli[dosa] == 'D') {
+                result = result + 500;
+            } else if (idli[dosa] == 'M') {
+                result = result + 1000;
+            }
+        }
+        return result;
+    }
+}
