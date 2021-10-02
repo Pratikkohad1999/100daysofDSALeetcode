@@ -1,0 +1,31 @@
+929 Unique Email Addresses (JAVA) 27/09/2021
+
+class Solution {
+    public int numUniqueEmails(String[] emails) {
+    HashSet<String> res = new HashSet<>();
+    StringBuilder b1 = new StringBuilder();
+    for (String gmail : emails){
+        char[] c1 = gmail.toCharArray();
+        b1.delete(0, b1.length());
+        boolean minus = false;
+        for(int j = 0; j<c1.length; j++){
+           char temp = c1[j];
+           if(temp =='.'){
+                  continue;
+           }else if (temp =='+'){
+           minus = true;
+           }
+           else if (temp == '@'){
+           minus = false;
+           b1.append(c1,j,c1.length-j);
+           }else {
+              if (!minus)
+                  b1.append(temp);
+           }
+        }
+        res.add(b1.toString());
+    }
+    return res.size();
+         
+    }
+}
