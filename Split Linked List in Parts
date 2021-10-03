@@ -1,0 +1,31 @@
+class Solution {
+    public ListNode[] splitListToParts(ListNode root, int k) {
+        ListNode[] result = new ListNode[k];
+        if (k == 1) {
+            result[0] = root;
+            return result;
+        }
+        int n = getLength(root);
+        ListNode a = null;
+        for (int b = 0; b < k; b++) {
+            result[b] = root;
+            int c = n / k + (b < n % k ? 1 : 0);
+            while (root != null && c > 0) {
+                a = root;
+                root = root.next;
+                c--;
+            }
+            if (a != null) a.next = null;
+        }
+        return result;
+    }
+
+    private int getLength(ListNode root) {
+        int length = 0;
+        while (root != null) {
+            length++;
+            root = root.next;
+        }
+        return length;
+    }
+}
