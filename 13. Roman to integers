@@ -9,7 +9,9 @@ def romanToInt(s: str) -> int:
     for i in range(n - 2, -1, -1):
         # Check if the character at right of current character is bigger or smaller
         if roman_map[s[i]] >= roman_map[s[i + 1]]:
-            num += roman_map[s[i]]
+            num =num + roman_map[s[i]]
         else:
-            num -= roman_map[s[i]]
+            num =num - roman_map[s[i]]
     return num
+
+
