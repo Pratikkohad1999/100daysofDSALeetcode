@@ -1,0 +1,20 @@
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+    List<Integer> set_res1 = new ArrayList<>();
+
+    for (int aa = 0; aa < nums.length; aa++) {
+      // index Getting, the element corresponds to
+      int i = Math.abs(nums[aa]) - 1;
+
+      // If Already negative, it means we are 
+      // doing it twice
+      if (nums[i] < 0)
+        set_res1.add(i + 1);
+
+      // Flip the number at the index to negative
+      nums[i] = nums[i] * -1;
+    }
+
+    return set_res1;
+  }
+}
