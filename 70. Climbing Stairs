@@ -10,8 +10,7 @@ class Solution {
         
         for (int b = 2; b <= n; b++) {
             a[b] = a[b - 2] + a[b - 1];
-        }
-        
+        }        
         return a[n];
     }
 }
