@@ -1,0 +1,12 @@
+public class Solution {
+    public int numSquares(int n) {
+        int a = n, integer =2;
+        while(integer * integer <=n){
+            int p = n/(integer*integer), q = n%(integer*integer);
+            a = Math.min(a, p + numSquares(q));
+            ++integer;
+        }
+        return a;
+    }
+}
+
