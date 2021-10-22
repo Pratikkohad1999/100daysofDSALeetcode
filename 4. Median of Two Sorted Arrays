@@ -1,0 +1,72 @@
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // If num1 is smaller than num2
+        // Swapping num1 with num2 if they are not
+        
+        if (nums1.length > nums2.length) {
+            return findMedianSortedArrays(nums2, nums1);
+        }
+        
+        // Lengths of arrays
+        
+        int x = nums1.length;
+        int y = nums2.length;
+        
+        // binary search pointer's
+        
+        int top = 0;
+        int bottom = x;
+        
+        // From here we start Binary search 
+        
+        while (top <= bottom) {
+            // Here we are Partitioning  both the array
+            
+            int partitionNums1 = (top + bottom) / 2;
+            int partitionNums2 = (x + y + 1) / 2 - partitionNums1;
+            
+            // Edge cases
+            // If there are no elements left on the left side after partition
+            
+            int maxLeftNums1 = partitionNums1 == 0 ? Integer.MIN_VALUE : nums1[partitionNums1 - 1];
+            
+            // If there are no elements left on the right side after partition
+            
+            int minRightNums1 = partitionNums1 == x ? Integer.MAX_VALUE : nums1[partitionNums1];
+            
+            // Similarly for nums2
+            
+            int maxLeftNums2 = partitionNums2 == 0 ? Integer.MIN_VALUE : nums2[partitionNums2 - 1];
+            int minRightNums2 = partitionNums2 == y ? Integer.MAX_VALUE : nums2[partitionNums2];
+            
+            // Check if we have found the match
+            
+            if (maxLeftNums1 <= minRightNums2 && maxLeftNums2 <= minRightNums1) {
+            
+                // Check if the merged array is of even/odd length
+                
+                if ((x + y) % 2 == 0) {
+                    return (Math.max(maxLeftNums1, maxLeftNums2) + Math.min(minRightNums1, minRightNums2)) / 2.0;
+                } else {
+                    return Math.max(maxLeftNums1, maxLeftNums2);
+                }
+            }
+            
+            // If we are too far on the right, we need to go to left side
+            
+            else if (maxLeftNums1 > minRightNums2) {
+                bottom = partitionNums1 - 1;
+            }
+            
+            // If we are too far on the left, we need to go to right side
+            
+            else {
+                top = partitionNums1 + 1;
+            }
+        }
+        
+        // If we reach here, it means the arrays are not sorted
+        
+        throw new IllegalArgumentException();
+    }
+}
