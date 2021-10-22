@@ -27,14 +27,17 @@ class Solution {
             
             // Edge cases
             // If there are no elements left on the left side after partition
+            // Conditional operators are used to evaluate a condition that's applied to one or two boolean expressions.
             
             int maxLeftNums1 = partitionNums1 == 0 ? Integer.MIN_VALUE : nums1[partitionNums1 - 1];
             
             // If there are no elements left on the right side after partition
+            // Conditional operators are used to evaluate a condition that's applied to one or two boolean expressions.
             
             int minRightNums1 = partitionNums1 == x ? Integer.MAX_VALUE : nums1[partitionNums1];
             
             // Similarly for nums2
+            // Conditional operators are used to evaluate a condition that's applied to one or two boolean expressions.
             
             int maxLeftNums2 = partitionNums2 == 0 ? Integer.MIN_VALUE : nums2[partitionNums2 - 1];
             int minRightNums2 = partitionNums2 == y ? Integer.MAX_VALUE : nums2[partitionNums2];
