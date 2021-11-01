@@ -1,0 +1,27 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        
+        String longestCommonPrefix = strs[0];
+        
+        for (int a = 1; a < strs.length; a++) {
+            int b = 0;
+            String currentString = strs[a];
+            
+            while (b < longestCommonPrefix.length() && b < currentString.length() && longestCommonPrefix.charAt(b) == currentString.charAt(b)) {
+                b++;
+            }
+            
+            if (b == 0) {
+                return "";
+            }
+            
+            longestCommonPrefix = longestCommonPrefix.substring(0, b);
+        }
+        
+        return longestCommonPrefix;
+    }
+}
+
