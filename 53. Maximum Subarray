@@ -1,0 +1,35 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        
+        int l=nums.length;
+        int a=0,c=0,maximum=nums[0];
+        int[] z = new int[l];
+        
+        while(a!=l)
+        {
+            z[a]=nums[a];
+            a++;
+        }
+        
+        //   when l==1 then it will  return nums[0];
+        Arrays.sort(z);
+        if(z[l-1]<=0)
+            return z[l-1];
+    
+        a=0;
+        while(a!=l)
+        {
+            c+=nums[a];
+            if(c<0)
+            {
+                c=0;
+            }
+            else if(c>maximum)
+                maximum=c;
+            System.out.println(maximum);
+            a++;
+        }
+        System.out.println(maximum);
+        return maximum;
+    }
+}
