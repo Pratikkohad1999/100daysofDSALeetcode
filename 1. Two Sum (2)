@@ -10,3 +10,6 @@ class Solution:
             else:
                 a[n] = index
         return []
+
+
+##################
