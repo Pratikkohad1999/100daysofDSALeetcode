@@ -2,6 +2,7 @@ class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         // If num1 is smaller than num2
         // Swapping num1 with num2 if they are not
+        // start of the code
         
         if (nums1.length > nums2.length) {
             return findMedianSortedArrays(nums2, nums1);
@@ -73,3 +74,4 @@ class Solution {
         throw new IllegalArgumentException();
     }
 }
+// end of the code
